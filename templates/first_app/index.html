@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static "first_app/css/mystyle.css" %}">
+    <title>Homepage of First App !!</title>
+  </head>
+  <body>
+    <h1>This is the Homepage of FIrst App!!</h1>
+    <h2>{{text1}}</h2>
+    <table border="1">
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Instrument</th>
+      </tr>
+      {% for row in musician %}
+      <tr>
+        <td>{{row.first_name}}</td>
+        <td>{{row.last_name}}</td>
+        <td>{{row.instrument}}</td>
+      </tr>
+
+      {% endfor %}
+      
+
+    </table>
+    <img src="{% static "first_app/images/bg.jpg" %}">
+  </body>
+</html>

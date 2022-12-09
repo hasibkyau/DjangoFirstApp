@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static "first_app/css/mystyle.css" %}">
+    <title>Form</title>
+  </head>
+  <body>
+    <h1>This is creater by HTML Form</h1>
+
+    {% comment %} <form class="" action="" method="post">
+      <label for="user_name">Full Name</label>
+      <input type="text" name="user_name" value="" required>  
+      <label for="user_email">Email</label>
+      <input type="email" name="user_email" value="" required>  
+      <input type="submit" name="submit" value="Submit">
+    </form> {% endcomment %}
+    
+    <hr>
+
+    <h3>{{ heading1 }}</h3>
+
+    <form class="" action="" method="post">
+      {{ test_form.as_p }}
+    </form>
+
+  </body>
+</html>

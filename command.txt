@@ -1,0 +1,15 @@
+Migration Commands:
+1. py manage.py migrate
+2. py manage.py makemigrations first_app
+3. py manage.py migrate
+
+Run Server:
+1. py manage.py runserver
+
+Database Admin Panel:
+py manage.py createsuperuser
+python manage.py showmigrations
+
+
+python manage.py migrate --fake first_app zero
+python manage.py migrate --fake-initial
