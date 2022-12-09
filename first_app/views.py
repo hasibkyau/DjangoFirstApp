@@ -29,10 +29,14 @@ def form(request):
             user_name = new_form.cleaned_data['user_name']
             user_dob = new_form.cleaned_data['user_dob']
             user_email = new_form.cleaned_data['user_email']
+            sex = new_form.cleaned_data['sex']
+            language=new_form.cleaned_data['language']
 
             diction.update({'user_name':user_name})
             diction.update({'user_dob':user_dob})
             diction.update({'user_email':user_email})
+            diction.update({'sex':sex})
+            diction.update({'language':language})
             diction.update({'form_submitted':"Yest"})
 
     return render(request, 'first_app/form.html', context=diction)
