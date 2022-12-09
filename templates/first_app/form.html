@@ -9,21 +9,23 @@
   <body>
     <h1>This is creater by HTML Form</h1>
 
-    {% comment %} <form class="" action="" method="post">
-      <label for="user_name">Full Name</label>
-      <input type="text" name="user_name" value="" required>  
-      <label for="user_email">Email</label>
-      <input type="email" name="user_email" value="" required>  
-      <input type="submit" name="submit" value="Submit">
-    </form> {% endcomment %}
-    
     <hr>
 
     <h3>{{ heading1 }}</h3>
 
-    <form class="" action="" method="post">
+    <form class="" action="" method="POST">
       {{ test_form.as_p }}
+      {% csrf_token %}
+      <input type="submit" name="submit" value="Submit">
     </form>
+
+    <hr>
+
+    {% if form_submitted %}
+    <p>Name: {{user_name}}</p>
+    <p>Death of Birth: {{user_dob}}</p>
+    <p>Email: {{user_email}}</p>
+    {% endif %}
 
   </body>
 </html>
