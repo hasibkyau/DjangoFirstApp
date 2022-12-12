@@ -27,8 +27,9 @@ def form(request):
     if request.method == 'POST':
         new_form = forms.user_form(request.POST)
         diction.update({'test_form':new_form})
+
         if new_form.is_valid():
-            diction.update({'test_form':new_form})
+            diction.update({'field':'Fields Match!!'})
             diction.update({'form_submitted':"Yest"})
 
     return render(request, 'first_app/form.html', context=diction)
