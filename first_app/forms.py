@@ -1,25 +1,32 @@
 from django import forms
 from django.core import validators
+# from first_app.models import Album, Musician
+from first_app import models
 
-def even_or_not(value):
-    if value%2 == 1:
-        raise forms.ValidationError("please insert an even number!")
+class MusicianForm(forms.ModelForm):
+    class Meta:
+        model = models.Musician
+        fields = "__all__"
+        # exclude = ['first_name']
+        # fields = ('first_name', 'last_name')
+e
 
-class user_form(forms.Form):
-    user_email = forms.EmailField()
-    user_vmail = forms.EmailField()
 
-    def clean(self):
-        all_cleaned_data = super().clean
-        user_email = all_cleaned_data['user_email']
-        user_vmail = all_cleaned_data['user_vmail']
+# def even_or_not(value):
+#     if value%2 == 1:
+#         raise forms.ValidationError("please insert an even number!")
+
+# class user_form(forms.Form):
+#     user_email = forms.EmailField()
+#     user_vmail = forms.EmailField()
+
+#     def clean(self):
+#         all_cleaned_data = super().clean
+#         user_email = all_cleaned_data['user_email']
+#         user_vmail = all_cleaned_data['user_vmail']
     
-        if user_email != user_vmail:
-            raise forms.ValidationError("Fields Don't Match !!!!!!")
-
-
-
-
+#         if user_email != user_vmail:
+#             raise forms.ValidationError("Fields Don't Match !!!!!!")
 
 
 

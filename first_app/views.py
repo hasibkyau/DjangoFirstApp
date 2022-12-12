@@ -18,21 +18,32 @@ def contact(request):
 def about(request):
     return HttpResponse("<h1>This is About Page</h1> <a href='/first_app/'>Homepage</a> <a href='/first_app/contact/'>Contact</a>")
 
-
-
 def form(request):
-    new_form = forms.user_form()
-    diction = {'test_form': new_form, 'heading1':"This form is creater with django library"}
-    
+    new_form = forms.MusicianForm()
+
     if request.method == 'POST':
-        new_form = forms.user_form(request.POST)
-        diction.update({'test_form':new_form})
+        new_form = forms.MusicianForm(request.POST)
 
         if new_form.is_valid():
-            diction.update({'field':'Fields Match!!'})
-            diction.update({'form_submitted':"Yest"})
-
+            new_form.save(commit=True)
+            return index(request)
+    diction = {'test_form':new_form, "heading1":'Add New Musician'}
     return render(request, 'first_app/form.html', context=diction)
+
+
+# def form(request):
+#     new_form = forms.user_form()
+#     diction = {'test_form': new_form, 'heading1':"This form is creater with django library"}
+    
+#     if request.method == 'POST':
+#         new_form = forms.user_form(request.POST)
+#         diction.update({'test_form':new_form})
+
+#         if new_form.is_valid():
+#             diction.update({'field':'Fields Match!!'})
+#             diction.update({'form_submitted':"Yest"})
+
+#     return render(request, 'first_app/form.html', context=diction)
 
 
 
