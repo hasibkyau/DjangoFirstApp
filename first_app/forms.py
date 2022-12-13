@@ -9,8 +9,6 @@ class MusicianForm(forms.ModelForm):
         fields = "__all__"
         # exclude = ['first_name']
         # fields = ('first_name', 'last_name')
-e
-
 
 # def even_or_not(value):
 #     if value%2 == 1:
