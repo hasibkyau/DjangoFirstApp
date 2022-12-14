@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 {% extends "first_app/base.html"%}
+{% load my_filter %}
 {%block body_block%}
-<h1>{{sample_text|upper}}</h1>
+
+<h1>Built In Filters</h1>
+<h3>{{sample_text|upper}}</h3>
 <h3>{{sample_text|lower}}</h3>
 <h3>{{sample_text|add:" hasib"}}</h3>
 <h3>{{number|add:" 8"}}</h3>
@@ -11,4 +14,9 @@
 <h3>{{sample_text|cut:"a"|upper}}</h3>
 <h3>{{album.release_date|date:'D d M Y'}}</h3>
 <h3>{{album.release_date|date:'D, d M Y'}}</h3>
+<hr>
+
+<h3>{{sample_text|custom_filter:"a"|upper}}</h3>
+<h3>{{ sample_text|custom_filter:"New Addition" }}</h3>
+
 {% endblock %}
