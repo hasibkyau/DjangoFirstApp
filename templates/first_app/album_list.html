@@ -3,35 +3,27 @@
 
 {%block body_block%}
 
-<h1>List of Albums:</h1>
-<hr>
-<div class="card">
-
-</div>
-<div class="container-flex">
-  <div class="row flex">
+<h4>Artist Name: {{artist_info.first_name}} {{artist_info.last_name}}</h4>
+<h4>Instrument: {{artist_info.instrument}}</h4>
+<h4>Artist Rating: {{artist_rating.num_stars_avg}}</h4>
+<h3>List of Album</h3>
   {% if album_list %}
+  <table class="table table-bordered">
+    <tr>
+      <th>Album Name</th>
+      <th>Release Date</th>
+      <th>Rating</th>
+    </tr>
+
   {% for album in album_list %}
-
-      <div class="col-sm-12 col-md-6 col-lg-3">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Name:{{album.name}}</h5>
-            <p class="card-text">Artist: {{album.artist}}</p>
-            <p class="card-text">Instrument:{{album.instrument}}</p>
-            <p class="card-text">Release Date:{{album.release_date}}</p>
-            <p class="card-text">Rating:{{album.num_stars}}</p>
-          </div>
-        </div>
-      </div>
-
-
-
-
+  <tr>
+    <td>{{album.name}}</td>
+    <td>{{album.release_date|date:"M d, Y"}}</td>
+    <td>{{album.num_stars}}</td>
+  </tr>
   {% endfor %}
   {% else %}
   <h4>No album list</h4>
   {% endif %}
-</div>
-</div>
+  </table>
 {% endblock %}
