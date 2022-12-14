@@ -5,9 +5,14 @@ from first_app import forms
 # Create your views here.
 
 def index(request):
-    musician_list = Musician.objects.order_by('first_name')
-    diction = {'text1':'This is a list of Musicians', 'musician':musician_list}
+    diction = {'sample_text':'I am a sample text', 'number':'8', 'date':'2022-12-09', 'album':Album.objects.get(pk=2)}
     return render(request, 'first_app/index.html', context=diction)
+
+
+# def index(request):
+#     musician_list = Musician.objects.order_by('first_name')
+#     diction = {'text1':'This is a list of Musicians', 'musician':musician_list}
+#     return render(request, 'first_app/index.html', context=diction)
 
 def home(request):
     return HttpResponse("<h1>This is Homepage</h1> <a href='/first_app/contact/'>Contact</a> <a href='/first_app/about/'>About</a>")
@@ -34,7 +39,7 @@ def form(request):
 # def form(request):
 #     new_form = forms.user_form()
 #     diction = {'test_form': new_form, 'heading1':"This form is creater with django library"}
-    
+
 #     if request.method == 'POST':
 #         new_form = forms.user_form(request.POST)
 #         diction.update({'test_form':new_form})
@@ -51,7 +56,7 @@ def form(request):
 # def form(request):
 #     new_form = forms.user_form()
 #     diction = {'test_form': new_form, 'heading1':"This form is creater with django library"}
-    
+
 #     if request.method == 'POST':
 #         new_form = forms.user_form(request.POST)
 

@@ -1,5 +1,14 @@
 <!DOCTYPE html>
 {% extends "first_app/base.html"%}
 {%block body_block%}
-<h1> I am index page</h1>
+<h1>{{sample_text|upper}}</h1>
+<h3>{{sample_text|lower}}</h3>
+<h3>{{sample_text|add:" hasib"}}</h3>
+<h3>{{number|add:" 8"}}</h3>
+<h3>{{sample_text|cut:" sample"}}</h3>
+<h3>{{sample_text|cut:"a"}}</h3>
+<h3>{{sample_text|cut:"a"|upper}}</h3>
+<h3>{{sample_text|cut:"a"|upper}}</h3>
+<h3>{{album.release_date|date:'D d M Y'}}</h3>
+<h3>{{album.release_date|date:'D, d M Y'}}</h3>
 {% endblock %}
