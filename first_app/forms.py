@@ -10,6 +10,13 @@ class MusicianForm(forms.ModelForm):
         # exclude = ['first_name']
         # fields = ('first_name', 'last_name')
 
+
+class AlbumForm(forms.ModelForm):
+    release_date = forms.DateField(widget=forms.TextInput(attrs={'type':'date'}))
+    class Meta:
+        model = models.Album
+        fields = "__all__"
+
 # def even_or_not(value):
 #     if value%2 == 1:
 #         raise forms.ValidationError("please insert an even number!")
@@ -22,7 +29,7 @@ class MusicianForm(forms.ModelForm):
 #         all_cleaned_data = super().clean
 #         user_email = all_cleaned_data['user_email']
 #         user_vmail = all_cleaned_data['user_vmail']
-    
+
 #         if user_email != user_vmail:
 #             raise forms.ValidationError("Fields Don't Match !!!!!!")
 
@@ -34,11 +41,11 @@ class user_form3(forms.Form):
 
     choices = (('male','Male'), ('female','Female'))
     sex = forms.ChoiceField(choices=choices, label="Sex", widget=forms.RadioSelect)
-    
-    
+
+
     languages = (('english','English'), ('bangla','Bangla'))
     language = forms.MultipleChoiceField(choices=languages, label="Language", widget=forms.CheckboxSelectMultiple)
-    
+
     user_dob = forms.DateField(label="Date of Birth", widget=forms.TextInput(
         attrs={'type':'date'}
     ))
@@ -56,11 +63,11 @@ class user_form2(forms.Form):
 
     choices = (('male','Male'), ('female','Female'))
     sex = forms.ChoiceField(choices=choices, label="Sex", widget=forms.RadioSelect)
-    
-    
+
+
     languages = (('english','English'), ('bangla','Bangla'))
     language = forms.MultipleChoiceField(choices=languages, label="Language", widget=forms.CheckboxSelectMultiple)
-    
+
     user_dob = forms.DateField(label="Date of Birth", widget=forms.TextInput(
         attrs={'type':'date'}
     ))
@@ -72,9 +79,8 @@ class user_form2(forms.Form):
 
 # <form class="" action="" method="post">
 #       <label for="user_name">Full Name</label>
-#       <input type="text" name="user_name" value="" required>  
+#       <input type="text" name="user_name" value="" required>
 #       <label for="user_email">Email</label>
-#       <input type="email" name="user_email" value="" required>  
+#       <input type="email" name="user_email" value="" required>
 #       <input type="submit" name="submit" value="Submit">
 # </form>
-    
