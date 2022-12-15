@@ -47,10 +47,7 @@ def album_form(request):
     return render(request, 'first_app/album_form.html', context=diction)
 
 def edit_artist(request, artist_id):
-    # artist_info = Musician.objects.get(pk=artist_id)
-    # album_list = Album.objects.filter(artist=artist_id).order_by('name','release_date')
-    # artist_rating = Album.objects.filter(artist=artist_id).aggregate(Avg('num_stars'))
-
-    form = forms.MusicianForm()
-    diction = {'edit_form':form, 'album_list':album_list, 'artist_rating':artist_rating, 'artist_info':artist_info}
+    artist_info = Musician.objects.get(pk=artist_id)
+    form = forms.MusicianForm(instance=artist_info)
+    diction = {'edit_form':form, 'artist_id': artist_id}
     return render(request, 'first_app/edit_artist.html', context=diction)

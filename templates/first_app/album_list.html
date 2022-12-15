@@ -6,8 +6,9 @@
 <h4>Artist Name: {{artist_info.first_name}} {{artist_info.last_name}}</h4>
 <h4>Instrument: {{artist_info.instrument}}</h4>
 <h4>Artist Rating: {{artist_rating.num_stars__avg}}</h4>
-<a href="{% url 'first_app:edit_artist' %}" class="btn btn-success btn-sm">Edit</a>
 <h3>List of Album</h3>
+<a href="{% url 'first_app:edit_artist' artist_id=artist_info.id %}" class="btn btn-success btn-sm">Edit</a>
+
   {% if album_list %}
   <table class="table table-bordered">
     <tr>
